@@ -62,70 +62,7 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        const deg=6;
-        const hour=document.getElementById('hour')
-        const minute=document.getElementById('minute')
-        const second=document.getElementById('second')
-        const date=document.getElementById('date')
-        const time=document.getElementById('time')
-        setInterval(() => {
-            const d=new Date();
-            const hh=d.getHours() * 30;
-            const mm=d.getMinutes() * deg;
-            const ss=d.getSeconds() * deg;
-
-            hour.style.transform= `rotateZ(${(hh)+(mm/12)}deg)`;
-            minute.style.transform= `rotateZ(${mm}deg)`;
-            second.style.transform= `rotateZ(${ss}deg)`;
-            const date_data=(d.toLocaleDateString()).split("/")
-            switch (date_data[0]) {
-                case "1":
-                    date_data[0]="Jan"
-                    break;
-                case "2":
-                    date_data[0]="Feb"
-                    break;
-                case "3":
-                    date_data[0]="Mar"
-                    break;
-                case "4":
-                    date_data[0]="Apr"
-                    break;
-                case "5":
-                    date_data[0]="May"
-                    break;
-                case "6":
-                    date_data[0]="Jun"
-                    break;
-                case "7":
-                    date_data[0]="Jul"
-                    break;
-                case "8":
-                    date_data[0]="Aug"
-                    break;
-                case "9":
-                    date_data[0]="Sep"
-                    break;
-                case "10":
-                    date_data[0]="Oct"
-                    break;
-                case "11":
-                    date_data[0]="Nov"
-                    break;
-                case "12":
-                    date_data[0]="Dec"
-                    break;
-                default:
-                    break;
-            }
-            date.innerHTML=`${date_data[1]} ${date_data[0]}, ${date_data[2]}`
-            time.innerHTML=`${d.toLocaleTimeString()}`
-        });
-
-
-
-    </script>
+    <script src="./clock.js"></script>
 </body>
 
 </html>
