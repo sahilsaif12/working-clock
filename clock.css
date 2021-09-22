@@ -1,0 +1,160 @@
+@import url(https://fonts.googleapis.com/css2?family=Handlee&display=swap);
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor:all-scroll;
+}
+
+.container {
+    height: 100vh;
+    /* background: linear-gradient(150deg, #C483C8 10%, #9d95f3, #1596f3, #04a0ee, #03a8d6, #00d8d1) url(./bg.jpg); */
+    background: #C483C8  url(./bg.jpg);
+    background-size:cover ;
+    background-blend-mode:multiply;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#3c383d url(./bg3.jpg);
+    background-size: cover;
+    background-blend-mode:soft-light;
+    border-radius: 50%;
+    box-shadow: 0 0 0px 20px #111111f6,
+                    0 0 0 30px rgb(252, 54, 153),
+                    0 0 0 35px #f4bdf7,
+    inset 0px 0px 20px rgba(165, 165, 165, 0.5), inset 0px 0px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    
+
+    
+}
+.clock .number{
+    position:absolute;
+    height: 98%;
+    top: 8px;
+    left: 47%;
+    transform:rotate( calc(30deg * var(--i)));
+    
+}
+.number .rotate{
+    transform: rotate( calc(-30deg * var(--j)));
+    font-size:3.5em;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5),
+                        0 0 15px rgba(0, 0, 0, 0.5);
+    /* color:transparent;
+    -webkit-text-stroke: 0.2px rgb(255, 255, 255)
+    ; */
+    color: rgb(255, 237, 203);
+}
+
+.digital{
+    position:absolute;
+    width: 138px;
+    height: 138px;
+    top: 64%;
+    left: 39%;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 1;
+    text-align: center;
+}
+.digital .digi-wrap{
+    position:absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    /* background-color: rgba(245, 245, 245, 0.384); */
+    background: linear-gradient(130deg,rgba(0, 0, 0, 0.2) 40%,rgba(255, 255, 255, 0.199) 41%,rgba(0, 0, 0, 0.3) 42%,rgba(0, 0, 0, 0.3) 70%,rgba(255, 255, 255, 0.199) 71%,rgba(0, 0, 0, 0.3) 72%);
+    top: 5px;
+    left: 4px; 
+    padding-top: 15px;
+    box-shadow:
+                    inset 1px 1px 5px wheat,
+                    inset -1px -1px 13px black;
+
+}
+
+.digital p{
+    margin-top:20px ;
+    font-size: 14px;
+    font-weight: bold ;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.822);
+    /* -webkit-text-stroke: 0.2px white; */
+    text-shadow: 0 0 1px rgba(243, 241, 238, 0.767);
+    font-family: 'Handlee', handwriting;
+}
+.clock::after{
+    position: absolute;
+    content: '';
+    bottom: 49%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(189, 186, 186);
+    box-shadow:0 0 0 2px rgba(180, 179, 179, 0.7),
+    inset 2px 2px 5px rgba(0, 0, 0,0.9),
+    inset -2px -2px 5px rgba(0, 0, 0,0.9);
+    z-index: 10;
+
+}
+.kata{
+    width: 100px;
+    height: 100px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.kata .hour,
+.kata .minute,
+.kata .second{
+    position: absolute;
+    /* bottom: 50%; */
+    /* left: 50%; */
+}
+.hour{
+    bottom: 51%;
+    width: 11px;
+    height: 135px;
+    background-color: rgb(250, 34, 77);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 2;
+    transform-origin: bottom;
+}
+.minute{
+    bottom: 51%;
+    width: 8px;
+    height: 170px;
+    background-color:rgb(196, 196, 196);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    z-index: 3;
+    transform-origin: bottom;
+}
+.second{
+    position: absolute;
+    bottom: 40%;
+    width:5px;
+    height: 260px;
+    background-color: rgb(196, 196, 196);
+    z-index: 4;
+    animation: animate 1s infinite linear;
+    transform-origin:50% 76%;
+}
+::selection{
+    background-color: transparent;
+}

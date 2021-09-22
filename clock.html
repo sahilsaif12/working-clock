@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./clock.css">
+    <title>clock</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="clock">
+            <div class="number" style="--i:1;">
+                <div class="rotate" style="--j:1;">1</div>
+            </div>
+            <div class="number" style="--i:2;">
+                <div class="rotate" style="--j:2;">2</div>
+            </div>
+            <div class="number" style="--i:3;">
+                <div class="rotate" style="--j:3;">3</div>
+            </div>
+            <div class="number" style="--i:4;">
+                <div class="rotate" style="--j:4;">4</div>
+            </div>
+            <div class="number" style="--i:5;">
+                <div class="rotate" style="--j:5;">5</div>
+            </div>
+            <div class="number" style="--i:6;">
+                <div class="rotate" style="--j:6;">6</div>
+            </div>
+            <div class="number" style="--i:7;">
+                <div class="rotate" style="--j:7;">7</div>
+            </div>
+            <div class="number" style="--i:8;">
+                <div class="rotate" style="--j:8;">8</div>
+            </div>
+            <div class="number" style="--i:9;">
+                <div class="rotate" style="--j:9;">9</div>
+            </div>
+            <div class="number" style="--i:10;">
+                <div class="rotate" style="--j:10;">10</div>
+            </div>
+            <div class="number" style="--i:11;">
+                <div class="rotate" style="--j:11;">11</div>
+            </div>
+            <div class="number" style="--i:12;">
+                <div class="rotate" style="--j:12;">12</div>
+            </div>
+            <div class="kata">
+                <div class="hour" id="hour"></div>
+                <div class="minute" id="minute"></div>
+                <div class="second" id="second"></div>
+            </div>
+            <div class="digital" id="digital">
+                <div class="digi-wrap">
+                    <p id="date"></p>
+                    <p id="time"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const deg=6;
+        const hour=document.getElementById('hour')
+        const minute=document.getElementById('minute')
+        const second=document.getElementById('second')
+        const date=document.getElementById('date')
+        const time=document.getElementById('time')
+        setInterval(() => {
+            const d=new Date();
+            const hh=d.getHours() * 30;
+            const mm=d.getMinutes() * deg;
+            const ss=d.getSeconds() * deg;
+
+            hour.style.transform= `rotateZ(${(hh)+(mm/12)}deg)`;
+            minute.style.transform= `rotateZ(${mm}deg)`;
+            second.style.transform= `rotateZ(${ss}deg)`;
+            const date_data=(d.toLocaleDateString()).split("/")
+            switch (date_data[0]) {
+                case "1":
+                    date_data[0]="Jan"
+                    break;
+                case "2":
+                    date_data[0]="Feb"
+                    break;
+                case "3":
+                    date_data[0]="Mar"
+                    break;
+                case "4":
+                    date_data[0]="Apr"
+                    break;
+                case "5":
+                    date_data[0]="May"
+                    break;
+                case "6":
+                    date_data[0]="Jun"
+                    break;
+                case "7":
+                    date_data[0]="Jul"
+                    break;
+                case "8":
+                    date_data[0]="Aug"
+                    break;
+                case "9":
+                    date_data[0]="Sep"
+                    break;
+                case "10":
+                    date_data[0]="Oct"
+                    break;
+                case "11":
+                    date_data[0]="Nov"
+                    break;
+                case "12":
+                    date_data[0]="Dec"
+                    break;
+                default:
+                    break;
+            }
+            date.innerHTML=`${date_data[1]} ${date_data[0]}, ${date_data[2]}`
+            time.innerHTML=`${d.toLocaleTimeString()}`
+        });
+
+
+
+    </script>
+</body>
+
+</html>
